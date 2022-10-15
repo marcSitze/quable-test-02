@@ -40,3 +40,22 @@ export const getAllProducts = async (req: Request, res: Response) => {
     console.error('Some Errors: ', error)
   }
 }
+
+export const getQuableProducts = async (req: Request, res: Response) => {
+  try {
+    let result: any = await quable.getProducts()
+    if(!result) {
+      return res.status(400).json({
+        success: false,
+        data: "error while getting products"
+      })
+    }
+
+    res.status(200).json({
+      success: true,
+      data:  result["hydra:member"]
+    })
+  } catch (error) {
+    console.error('Some Err: ', error)
+  }
+}

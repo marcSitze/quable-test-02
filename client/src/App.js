@@ -1,23 +1,35 @@
-import logo from './logo.svg';
+import React, { useContext, useEffect } from 'react';
 import './App.css';
+import TableItem from './components/TableItem';
+import Spinner from './components/Spinner';
+import { productsContext } from './context/products/productsContext'
 
 function App() {
+  const { products, getProducts, loading } = useContext(productsContext)
+
+  useEffect(() => {
+    getProducts()
+  }, [])
+
+  useEffect(() => {
+  }, [loading])
+
+  // console.log('Products: ', products)
+  // console.log('loading: ', loading)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <p>Quable Product list</p>
+      {loading && <Spinner />}
+      <table>
+        <tr>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Vendor</th>
+          <th>Type</th>
+          <th>Created at</th>
+        </tr>
+      {products.map((product, index) => <TableItem product={product} key={index} />)}
+      </table>
     </div>
   );
 }

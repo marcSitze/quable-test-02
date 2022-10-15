@@ -6,6 +6,20 @@ import { IQuableProduct } from '../quable/quable.types'
 
 const { SHOP } = config
 
+export const ShopifyInit = () => {
+  const { API_KEY, API_SECRET_KEY, SCOPES, SHOP, HOST, HOST_SCHEME } = config;
+
+Shopify.Context.initialize({
+  API_KEY,
+  API_SECRET_KEY,
+  SCOPES: [SCOPES],
+  HOST_NAME: HOST.replace(/https?:\/\//, ""),
+  HOST_SCHEME,
+  IS_EMBEDDED_APP: true,
+  API_VERSION: ApiVersion.October22 // all supported versions are available, as well as "unstable" and "unversioned"
+});
+}
+
 export const getProducts = async () => {
   const session = await Shopify.Utils.loadOfflineSession(SHOP);
   // console.log('Session: ', session)
@@ -57,4 +71,4 @@ export const adaptProducts = (products: IQuableProduct[]) => {
 
   return adapted
 }
-export default { addProduct, getProducts, adaptProducts }
+export default { addProduct, getProducts, adaptProducts,ShopifyInit }
