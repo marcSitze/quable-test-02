@@ -16,7 +16,7 @@ const config = {
 }
 
 5) Then add this ngrok link in your partner dashboard and save
-![alt text](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+![alt text](https://github.com/marcSitze/quable-test-02/blob/master/todo.png?raw=true)
 
 B) How to start the APP
  cd /client
