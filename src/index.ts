@@ -13,6 +13,7 @@ if(config.NODE_ENV !== 'production') {
 }
 
 const app = express();
+const PORT = process.env.PORT || 3000
 
 shopifyService.ShopifyInit()
 // Storing the currently active shops in memory will force them to re-login when your server restarts. You should
@@ -25,5 +26,5 @@ app.use('/', shopifyRoutes)
 app.use('/api', apiRoutes)
 
 app.listen(3000, () => {
-  console.log('your app is now listening on port 3000');
+  console.log('your app is now listening on port: ', PORT);
 });

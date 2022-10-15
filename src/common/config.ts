@@ -3,7 +3,7 @@ export const config = {
     API_SECRET_KEY: process.env.API_SECRET_KEY || "5ebb95e2f52cea1a0b2e1e5562fd5d31",
     SHOP: process.env.SHOP || "wembe-test.myshopify.com",
     SCOPES: process.env.SCOPES || "write_products",
-    HOST: process.env.HOST || "https://5ac6-51-195-44-15.eu.ngrok.io",
+    HOST: process.env.HOST || "https://c3df-51-195-44-15.eu.ngrok.io",
     HOST_SCHEME: process.env.HOST_SCHEME || "https",
     NODE_ENV: process.env.NODE_ENV || 'development',
     quable: {
